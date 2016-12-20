@@ -16,7 +16,7 @@ As our applications increase in complexity, we need a safety net.  We need somet
 
 Think back to the way you code.  You create a part of a web page, then you browse to that page to test it, to ensure that it is doing what you expect.  Then you add another feature.  And test both features.  Then you add a third feature and test...just the third feature.  Imagine if you had a battery of automated specs, which run against your code, so you can see if your new changes fit your new requirements and EVERY requirement that came before this.
 
-### Unit testing
+### Testing
 
 **Acceptance tests** verify our apps at the level of user interaction.  Testing for things when users visit web pages, click on links, validate the DOM, etc.
 
@@ -47,9 +47,9 @@ Writing unit tests is a very similar process to writing user stories, which we'l
 
 When we think of "testing" we tend to think of something you do **after** you've created something. With unit tests, you're encouraged to write the tests ***first*** -- **before** you even start writing actual code.
 
-### Turn and talk
+### Think it out
 
-Turn to a partner and discuss reasons of why would you write tests beforehand?
+Think of some reasons of why would you write tests beforehand?
 
 >Answers
 
