@@ -8,25 +8,26 @@
 - Compare and contrast common RSpec terms including `"describe"`, `"it"`, `"context"`, `before(:each)`, `before(:all)`, `"subject"`,  `"let"`
 - Write and pass unit tests using RSpec
 
-## Framing: Introduction to Test-Driven Development
+## Framing: Introduction to Test Driven Development
 
-### Why do we implement tests in our applications? (5 min, 0:05)
+### Why do we implement tests in our applications?
 
 As our applications increase in complexity, we need a safety net.  We need something to ensure that we "Do no harm".  We need a battery of automated tests.  These are specifications (specs) about YOUR code that you can run to ensure your code is doing what it should.  
 
-Think back to the way you code.  You create a part of a web page, then you browse to that page to test it, to ensure that it is doing what you expect.  Then you add another feature.  And test both features.  Then you add a third feature and test... just the third feature.  Imagine if you had a battery of automated specs, which run against your code, so you can see if your new changes fit your new requirements and EVERY requirement that came before this.
+Think back to the way you code.  You create a part of a web page, then you browse to that page to test it, to ensure that it is doing what you expect.  Then you add another feature.  And test both features.  Then you add a third feature and test...just the third feature.  Imagine if you had a battery of automated specs, which run against your code, so you can see if your new changes fit your new requirements and EVERY requirement that came before this.
 
-### Unit testing (5 min, 0:10)
+### Unit testing
+
+**Acceptance tests** verify our apps at the level of user interaction.  Testing for things when users visit web pages, click on links, validate the DOM, etc.
 
 **Unit tests** check the smallest level. The functionality of a specific method.
-
-**Acceptance tests** verify our apps at the level of user interaction.  Testing for things when users visit web pages, click on links, validate the DOM, etc.  
 
   * The "units" in unit tests are individual methods. Unit tests are intended to test small, little blocks of code, and make sure a specific input results in a specific output.
 
   * As a rule of thumb, a good unit test should not be more than 5 lines long.
 
-  * Functional tests have a much wider focus. You'd use functional testing to make sure a sign-in form works, or that a user who doesn't have admin privileges can't see a certain page for admins, while a user who *does* have admin privileges *can* see that page.
+**Functional tests** have a much wider focus.
+ * You'd use functional testing to make sure a sign-in form works, or that a user who doesn't have admin privileges can't see a certain page for admins, while a user who *does* have admin privileges *can* see that page.
 
 Unit testing always should come before functional testing. Functional testing is much less crucial. Unit testing is so important, that...
 
@@ -42,11 +43,11 @@ You'll see the term **test coverage** pop up pretty often. People are always aim
 <!--5 people from my cohort hired by Accella in charge of creating rspec tests  -->
 <!--Planning on talking about two startups interviewed with and how wished they would have integrated more testing earlier on when developing their applications, it's now a big focus for them, cut corners early on and now need to refactor code base -->
 
-We've asked you to write user stories. Writing unit tests is a very similar process.
+Writing unit tests is a very similar process to writing user stories, which we'll get into later on in the week.
 
-When we think of "testing" we tend to think of something you do **after** you've created something. With unit tests, you're encouraged to write the tests ***first***-- **before** you even start writing actual code.
+When we think of "testing" we tend to think of something you do **after** you've created something. With unit tests, you're encouraged to write the tests ***first*** -- **before** you even start writing actual code.
 
-### Turn and talk (5 min, 0:15)
+### Turn and talk
 
 Turn to a partner and discuss reasons of why would you write tests beforehand?
 
@@ -58,9 +59,9 @@ Turn to a partner and discuss reasons of why would you write tests beforehand?
 
 >In short: writing out unit tests, even if you just leave them pending, will make this class much easier, and make you look super-marketable.
 
->This process of writing the tests **first** is called **Test-Driven Development**, or TDD.
+>This process of writing the tests **first** is called **Test Driven Development**, or TDD.
 
-### TDD Overview: (5 min, 0:20)
+### TDD Overview
 
 ![TDD Example](http://joshldavis.com/img/tdd-vs-bdd/tdd-flowchart.png)
 
@@ -68,7 +69,7 @@ Turn to a partner and discuss reasons of why would you write tests beforehand?
 
 * Fewer bugs in our code
 
-* Provides a clear goal in the development, that is, to make all tests to pass.
+* Provides a clear goal in the development, that is, to make all tests to pass
 
 * Allows for automation and continuous integration, ensuring that our application won’t break
 
@@ -76,11 +77,11 @@ Turn to a partner and discuss reasons of why would you write tests beforehand?
 
 **DrawBacks**
 
-* Requires time and effort.
+* Requires time and effort
 
-* Could be more costly to an organization when there are changes in requirements.
+* Could be more costly to an organization when there are changes in requirements
 
-## What is RSpec? (5 min, 0:25)
+## What is RSpec?
 
 **RSpec** is a testing framework for the Ruby programming language.
 
@@ -89,7 +90,7 @@ RSpec makes it easier to write tests.  It's a Domain Specific Language for writi
 > DSL: "Domain Specific Language" that is created specifically to solve problems in a particular domain and is not intended to be able to solve problems outside it
 
 ---
-### We-Do: RSpec Example (5 min, 0:30)
+### We Do: RSpec Example
 
 Code is available here: [rspec_person_example](https://github.com/ga-dc/rspec_person_example)
 
@@ -165,11 +166,11 @@ end
 
 ---
 
-### You-Do - Modify Person.rb to fail tests (5 min, 0:35)
+### You Do - Modify Person.rb to fail tests
 
 **Instructions:**
 
-1. Fork and Clone the Rspec Person Example Repo: https://github.com/ga-dc/rspec_person_example
+1. Clone the Rspec Person Example Repo: https://github.com/ga-dc/rspec_person_example
 
 2. In the root of `rspec_person_example directory` run `$ rspec --init` in our terminal.
 
@@ -177,21 +178,18 @@ end
 
 4. See the tests pass, now take a few minutes to adjust the code:
 
-  * Comment-out various parts of the code, delete methods, add methods back in, etc.. and run the specs a few times.
+  * Comment out various parts of the code, delete methods, add methods back in, etc.. and run the specs a few times.
 
   * Play with it! See how your actions in the code AND in the specs affect the output. See the specs fail, then make them pass again.
 
-## We-Do - Create a Unit Test using RSpec
+## We Do: Create a Unit Test using RSpec
 
 We are going to be creating something similar to the above example. Instead we will be writing a spec for creating a new ruby class of `Dog`
 
-### RSpec Set-up (5 min, 0:40)
-
-In your `wdi/sandbox` directory:
+### RSpec Set-up
 
 Let's build out our directory for this exercise:
 ```
-$ cd sandbox/
 $ mkdir rspec-example
 $ cd rspec-example
 $ touch Gemfile
@@ -199,7 +197,7 @@ $ touch Gemfile
 
 #### Install RSpec
 
-We're going to do some stuff now that you haven't seen before. I want to walk through it first, and then explain what everything is afterward.
+We're going to do some stuff now that you haven't seen before. I'm going to break down what we're doing as its happening.
 
 The first thing we'll do is install a gem called RSpec. To do this, just add `gem 'rspec'` to the `Gemfile`:
 
@@ -236,7 +234,7 @@ $ rspec --init
 
 >Within `.rspec` file add `--color` OR in `spec/spec_helper.rb` add `config.color = true`
 
-### Writing our first tests (10 min, 0:50)
+### Writing our first tests
 
 Now, in our `models/dog.rb` file let's add the following code:
 
@@ -276,7 +274,7 @@ describe Dog do
 end
 ```
 
-...and remember, every `do` needs an `end`. Add it.
+...and remember, every `do` needs an `end`. Don't forget!
 
 We're going to write a simple test just to make sure a new Dog has the class of Dog... which, of course, it will, but that's OK!
 
@@ -333,7 +331,7 @@ You might have noticed when we ran `rspec` before that there was a little asteri
 
 ### It...do
 
-Now add `do` at the end of the first `it` line. Remember, each `do` needs an `end`!
+Now add `do` at the end of the `it` lines. Remember, each `do` needs an `end`!
 
 ```rb
 describe Dog do
@@ -360,11 +358,11 @@ Finished in 0.0005 seconds (files took 0.07273 seconds to load)
 
 Adding `do...end` makes RSpec think this test is an actual test -- not pending anymore. There's no malfunctioning code inside this test, so RSpec is saying it passes. Asterisk `*` indicates a pending test, and dot `.` indicates a passing test.
 
-## Break (10 min, 1:00)
+## Break
 
-## We-Do: Passing Our First Test (10 min, 1:10)
+## We Do: Passing Our First Test
 
-Let's make these tests actually test something. Inside the first test, make (but don't save) a new Dog and save it to a variable.
+Let's make these tests actually test something. Inside the first test, make a new Dog and save it to a variable.
 
 ```rb
 it "has the class Dog" do
@@ -385,7 +383,7 @@ Run `rspec`. The test should still pass.
 
 >Read that new line to yourself. We literally wrote "expect dog to be a dog". This is totally proper English but it's code! The methods that come built-in with RSpec were created in such a way that tests look as English-y as possible.
 
-This is our first first spec or "expectation"
+This is our first first spec or "expectation".
 
 RSpec assertions have two components: `expectation` and `matcher`.
 
@@ -431,7 +429,7 @@ expected: "Integer"
 
 Before moving on, let's change the first test so it passes again!
 
-## You-Do: Make the second test pass (10 min, 1:20)
+## You Do: Make the second test pass
 
 **Instructions:**
 
@@ -439,29 +437,31 @@ Before moving on, let's change the first test so it passes again!
 
 2. Then we will review the solution together
 
-[Link to see solution code](https://github.com/ga-wdi-lessons/rspec/blob/master/solution.md)
+[Link to see solution code](https://github.com/ga-wdi-pvd/rspec/blob/master/solution.md)
 
-## You-Do: Create a new Spec (5 min, 1:25)
+## You Do: Create a new Spec
 
 **Instructions:**
 
 1. Write a Spec that confirms the following: "has a hunger level thats an Integer"
 
-## We-Do: Additional Tests Using Context (5 min, 1:30)
+## We Do: Additional Tests Using Context
 
 Now, let's write a test for our method `set_hunger_level` that will be changing our dog's hunger level. Add in the following:
 
 ```rb
 describe "#set_hunger_level" do
-  context "when new hunger level" do
-    context "is less than 0" do
-      it "set the hunger level to 0"
-    end
-    context "is greater than 0" do
-      it "set our hunger level to the new hunger level"
+    context "when new hunger level" do
+      context "is less than 0" do
+        it "set the hunger level to 0" do
+        end
+      end
+      context "is greater than 0" do
+        it "set our hunger level to the new hunger level" do
+        end
+      end
     end
   end
-end
 ```
 Let's go through it a bit at a time:
 
@@ -477,13 +477,13 @@ The hash `#` in front of `set_hunger_level` also doesn't do anything -- it's jus
 
  <!-- RSpec is all about making tests easy to read from an English standpoint. -->
 
-## You-Do: Making the `#set_hunger_level` tests pass (10 min, 1:40)
+## You Do: Making the `#set_hunger_level` tests pass
 
 **Instructions:**
 
 Given what we have done in class so far, spend the next 10 minutes getting our `'#set_hunger_level'` tests to pass!
 
-## DRYing it up (10 min, 1:50)
+## DRYing it up
 
 **Which lines on here repeat?**
 ```rb
@@ -492,28 +492,30 @@ describe Dog do
     dog = Dog.new("Rover", 10)
     expect(dog).to be_a(Dog)
   end
-  it "has a String for an Name" do
+  it "has a String for a Name" do
     dog = Dog.new("Rover", 10)
     expect(dog.name).to be_a(String)
   end
-  it "has an initial hunger level thats an Integer" do
+
+  it "has a hunger level thats an Integer" do
     dog = Dog.new("Rover", 10)
     expect(dog.hunger_level).to be_a(Integer)
   end
+
   describe "#set_hunger_level" do
     context "when new hunger level" do
       context "is less than 0" do
-        it "sets the hunger level to 0" do
-          @dog = Dog.new("Rover", 10)
-          @dog.set_hunger_level(-1)
-          expect(@dog.hunger_level).to eq(0)
+        it "set the hunger level to 0" do
+          dog = Dog.new("Rover", 10)
+          dog.set_hunger_level(-1)
+          expect(dog.hunger_level).to eq(0)
         end
       end
       context "is greater than 0" do
-        it "sets our hunger level to the new hunger level" do
-          @dog = Dog.new("Rover", 10)
-          @dog.set_hunger_level(2)
-          expect(@dog.hunger_level).to eq(2)
+        it "set our hunger level to the new hunger level" do
+          dog = Dog.new("Rover", 10)
+          dog.set_hunger_level(2)
+          expect(dog.hunger_level).to eq(2)
         end
       end
     end
@@ -526,9 +528,6 @@ Usually, you're going to have a whole bunch of tests that all do very similar th
 Swap out your code with this:
 
 ```rb
-require "rspec"
-require_relative '../models/dog'
-
 describe Dog do
   before(:each) do
     @dog = Dog.new("Rover", 10)
@@ -561,7 +560,6 @@ describe Dog do
         end
       end
     end
-
   end
 end
 
@@ -616,14 +614,13 @@ describe Dog do
         end
       end
     end
-
   end
 end
 
 ```
 What changed?  We've identified that "dog" is the "subject under test", converting the instance variable (@dog) into the "subject" helper.  This method takes a name (:dog) and block of code that returns the subject (a new Dog with a name of Rover and hunger level of 10).  It provides a method, named "dog", that we now use throughout our spec.  
 
-This is a way of ensuring the subject is available in every test, just like `before:each` and `before:all`. What's the difference? `subject` is semantic.**Functionally, however, 'before' and 'subject' are the same.**
+This is a way of ensuring the subject is available in every test, just like `before:each` and `before:all`. What's the difference? `subject` is semantic. **Functionally, however, 'before' and 'subject' are the same.**
 
 Interestingly, we could also replace each use of "dog" with "subject".
 
@@ -635,29 +632,28 @@ RSpec also provides a "let" helper, which works the same way.  You can use it to
 
 You can have `subject`, `let`, and `before:each` right next to each other.
 
-## Break (10 min, 2:00)
+## Break
 
-## Garnet Example (5 min, 2:05)
+## Garnet Example
 
-We use RSpec to test Garnet, the attendance/homework tracking app. Before any changes get pushed up to our live server, they have to pass all the tests -- an automated system rejects the changes if they don't pass.
+GA DC uses RSpec to test Garnet, their attendance/homework tracking app. Before any changes get pushed up to the live server, they have to pass all the tests -- an automated system rejects the changes if they don't pass.
 
-[Here's what that looks like. Seem familiar?](https://travis-ci.org/ga-dc/garnet/builds/89503768#L241) Clearly there are a lot of tests that are just pending and don't do anything yet! These dramatically help us plan. But the main benefit is that tests tell you if you or anyone else breaks a class or function while working on the codebase at a later point. Everyone has to always run the test cases as they make the changes.
+[Here's what that looks like. Seem familiar?](https://travis-ci.org/ga-dc/garnet/builds/89503768#L241) Clearly there are a lot of tests that are just pending and don't do anything yet! These dramatically help with planning. But the main benefit is that tests tell you if you or anyone else breaks a class or function while working on the codebase at a later point. Everyone has to always run the test cases as they make the changes.
 
 
-## You-Do: Let's Go Shopping (25 min, 2:30)
+## You Do: Let's Go Shopping
 
 **Instructions:**
 
- * Fork and Clone the following repo:
-[rspec-shopping-exercise](https://github.com/ga-wdi-exercises/rspec-shopping-exercise/tree/master)
-
+ * Clone the following repo:
+[rspec-shopping-exercise](https://github.com/ga-wdi-exercises/rspec-shopping-exercise)
   > Don't forget to run bundle install!
 
  * Take a look at the `product.rb model`. Write unit tests in `product_spec.rb` to test the methods it contains
 
  * You might need to refer to the RSpec documentation linked below for additional matchers to use when writing your tests
 
-  [RSpec documentation Built in Matchers](https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers).  Make sure you are on the version that corresponds to your installed library (v3.3).
+  * [RSpec documentation Built in Matchers](https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers).  Make sure you are on the version that corresponds to your installed library (v3.5).
 
   ## Bonus!
 
@@ -697,9 +693,9 @@ Think `Red/Green/Refactor`
 * Each spec should run in isolation.  
 
 
-### Quiz Questions:
+### Review Questions:
 
-- What is the purpose Unit testing?
+- What is the purpose of Unit testing?
 - How does Unit testing compare to Functional testing?
 - Explain what role RSpec plays in testing.
 - Describe TDD Cycle/Mantra
@@ -715,6 +711,7 @@ Think `Red/Green/Refactor`
 "```describe```" indicates what I'm testing, typically a class or the name of a method while " ```context```" indicates a specific set of circumstances that effect the test (think WHEN!).
 
 ### Additional Resources
+- [GA DC Lesson](https://github.com/ga-wdi-lessons/rspec)
 - [Learn Ruby via RSpec]( https://github.com/ga-dc/learn_ruby_via_rspec)
 - [Code School RSpec](https://www.codeschool.com/courses/testing-with-rspec)
 - [RSpec for Newbies](http://code.tutsplus.com/tutorials/ruby-for-newbies-testing-with-rspec--net-21297)
